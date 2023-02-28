@@ -1,0 +1,1 @@
+hola:hello,rojo:red,leer:read,leer:read,familia:family,texto:text,bomba:bomb,azul:blue,hola:hi,violeta:violet

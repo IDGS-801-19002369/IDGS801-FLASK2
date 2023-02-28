@@ -1,0 +1,41 @@
+{%macro render_input(name, placeholder, type="text")%}
+<div class="control-group">
+    <label for="{{name}}" class="control-label">{{placeholder}} </label>
+    <div class="controls">
+      <input type="{{type}}" name="{{name}}" placeholder="{{placeholder}}" value="">
+    </div>
+</div>
+{%endmacro%}
+
+{%macro render_field(field)%}
+<div>
+  <div class="controls">
+    {{field.label(class_="w3-text-teal")}}
+    {{field(class_="w3-input w3-border-0", **kwargs)|safe}}
+  </div>
+</div>
+{%if field.errors%}
+<ul class="w3-ul">
+  {%for error in field.errors%}
+  <li class="w3-text-red"> {{error}} </li>
+  {%endfor%}
+</ul>
+{%endif%}
+{%endmacro%}
+
+{%macro render_cajas(numero)%}
+<div>
+  <label class="w3-text-teal">Número {{numero+1}}:  </label>
+  <input type="number", name="numero{{numero+1}}" class="w3-input w3-border-0" value=0>
+</div> <br>
+{%endmacro%}
+
+{%macro render_simple_text(type, result)%}
+<p>El {{type}} es: {{result}} </p>
+{%endmacro%}
+
+{%macro repeat_nums(repeat)%}
+  {%if repeat[1] > 1%}
+  <p>El número {{repeat[0]}} se repitió {{repeat[1]}} veces. </p>
+  {%endif%}
+{%endmacro%}

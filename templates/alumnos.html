@@ -1,0 +1,25 @@
+{%extends 'layout.html'%}
+
+{%block content%}
+<div class="w3-card-4">
+    <div class="w3-container w3-teal">
+        <h2>Formulario de Registro</h2>
+    </div>
+    {%from "_macros.html" import render_field%}
+    <form action="#" class="w3-container w3-light-grey" style="padding-bottom: 1rem;" method="post" novalidate>
+        {{render_field(form.matricula)}}
+        {{render_field(form.nombre)}}
+        {{render_field(form.apaterno)}}
+        {{render_field(form.amaterno)}}
+        {{render_field(form.email)}}
+        <div class="custom-control"> <br>
+            <input class="w3-btn w3-blue-grey" type="submit" value="Registrar">
+        </div>
+    </form>
+</div>
+
+<div class="col-xs-6">
+    <h3>Matricula: {{mat}}</h3>
+    <h3>Nombre: {{nom}}</h3>
+</div>
+{%endblock%}

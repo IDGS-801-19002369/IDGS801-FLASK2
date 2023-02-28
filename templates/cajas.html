@@ -1,0 +1,39 @@
+{%extends 'layout.html'%}
+
+{%block content%}
+
+<div>
+    <div class="w3-card-4">
+        <div class="w3-container w3-teal">
+            <h2>Mostrar Cajas</h2>
+        </div>
+        <form action="/cajas_dinamica" method="post" class="w3-container w3-light-grey" style="padding-bottom: 1rem;">
+            <label for="numero" class="w3-text-teal">Cantidad de números: </label>
+
+            <input class="w3-input w3-border-0" type="number" name="numero" value={{ns}}> <br>
+
+            <input class="w3-btn w3-blue-grey" type="submit" value="Generar Cajas">
+        </form>
+    </div>
+    <hr>
+
+    {%from "_macros.html" import render_cajas%}
+    {%if active%}
+    <div class="w3-card-4">
+        <div class="w3-container w3-teal">
+            <h2>Insertar {{ns}} Números</h2>
+        </div>
+        <form action="/calcular" method="post" class="w3-container w3-light-grey" style="padding-bottom: 1rem;">
+            {%for n in range(ns)%}
+                {{render_cajas(n)}}
+            {%endfor%}
+            <div class="custom-control">
+                <input class="w3-btn w3-blue-grey" type="submit" value="Revisar">
+            </div>
+        </form>
+    </div>
+    {%else%}
+    {%endif%}
+</div>
+
+{%endblock%}

@@ -1,0 +1,29 @@
+{%extends "layout.html"%}
+{%block content%}
+  <div class="w3-card-4 w3-center">
+    <div class="w3-container w3-teal">
+      <h1>Resultados para "{{comas}}"</h1>
+    </div>
+
+    <div class="w3-container w3-light-grey" style="padding-bottom: 1rem;">
+      <h3 class="w3-wide">Datos Generales</h3>
+      {%from "_macros.html" import render_simple_text%}
+      <div class="w3-white" style="padding: 1rem">
+        {{render_simple_text('promedio', promedio)}}
+        {{render_simple_text('Numero Menor', nMenor)}}
+        {{render_simple_text('Numero Mayor', nMayor)}}
+      </div>
+
+      <hr>
+
+      <h3 class="w3-wide">Números Repetidos</h3>
+      {%from "_macros.html" import repeat_nums%}
+      <div class="w3-white" style="padding: 1rem">
+        {%for rep in repetidos%}
+        {{repeat_nums(rep)}}
+        {%endfor%}
+      </div> <br>
+      <a href="/cajas_dinamica" class="w3-btn w3-blue-grey">Volver</a>
+    </div>
+  </div>
+{%endblock%}

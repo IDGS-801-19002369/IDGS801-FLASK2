@@ -1,0 +1,53 @@
+{%extends "layout.html"%}
+{%block content%}
+<h1>Traductor</h1>
+
+<div class="w3-card-4">
+    <div class="w3-container w3-teal">
+        <h2>Introducir Palabra a registrar</h2>
+    </div>
+    {%from "_macros.html" import render_field%}
+    <form action="#" class="w3-container w3-light-grey" style="padding-bottom: 1rem;" method="post" novalidate>
+        {{ form.csrf_token }}
+        <input type="hidden" name="status" value="registrar">
+        {{render_field(form.spanish)}}
+        {{render_field(form.english)}}
+        <br>
+        <div class="custom-control">
+            <input class="w3-btn w3-blue-grey" type="submit" value="Registrar">
+        </div>
+    </form>
+</div>
+<hr>
+
+<div class="w3-card-4">
+    <div class="w3-container w3-teal">
+        <h2>Traducir</h2>
+    </div>
+<form action="#" class="w3-container w3-light-grey" style="padding-bottom: 1rem; padding-top: 1rem" method="post" novalidate>
+    <div class="w3-row">
+        <div class="w3-quarter">
+            <input type="hidden" name="status" value="buscar">
+            <p><input class="w3-radio" type="radio" name="select" value="spanish" checked>
+                <label>Español</label></p>
+            <p><input class="w3-radio" type="radio" name="select" value="english">
+                <label>Inglés</label></p>
+        </div>
+
+        <div class="w3-half">
+            <label class="w3-text-teal">Buscar:  </label>
+            <input type="text" name="word" class="w3-input w3-border-0" value="{{search}}">
+            <div class="custom-control">
+                <br>
+                <input class="w3-btn w3-blue-grey" type="submit" value="Buscar">
+            </div>
+        </div>
+
+        <div class="w3-quarter w3-container">
+            <h3 class="w3-center">{{result}}</h3>
+        </div>
+    </div>
+</form>
+</div>
+
+{%endblock%}

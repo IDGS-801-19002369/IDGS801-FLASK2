@@ -1,0 +1,4 @@
+python -m venv env -> Crear entorno virutal
+-pip install Flask -> Instalar Flask
+-pip install Flask-WTF -> Instalar Flask-WTF
+-pip install email-validator -> Instalar EmailValidator

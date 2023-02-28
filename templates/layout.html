@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> {{name}} </title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+<body class="w3-container" style="padding-bottom: 4rem;">
+    
+    <div class="w3-top">
+        <div class="w3-bar w3-black w3-card">
+        <a href="/cajas_dinamica" class="w3-bar-item w3-button w3-padding-large {{'active' if name == 'Cajas Dinámicas' else ''}}">
+            <span class="material-icons icon" style="font-size: 1.5rem;"></span> CAJAS DINÁMICAS</a>
+        <a href="/alumnos" class="w3-bar-item w3-button w3-padding-large {{'active' if name == 'Alumnos' else ''}}">
+            <span class="material-icons icon" style="font-size: 1.5rem;"></span> ALUMNOS</a>
+        <a href="/cookie" class="w3-bar-item w3-button w3-padding-large {{'active' if name == 'Cookie' else ''}}">
+            <span class="material-icons icon" style="font-size: 1.5rem;"></span> COOKIE</a>
+        <a href="/traductor" class="w3-bar-item w3-button w3-padding-large {{'active' if name == 'Traductor' else ''}}">
+            <span class="material-icons icon" style="font-size: 1.5rem;"></span> TRADUCTOR</a>
+
+            <span class="material-icons icon" >person</span> Bernardo Molina Zuñiga</p>
+        {%with messages = get_flashed_messages()%}
+            {%if messages%}
+                {%for message in messages%}
+                <p class="w3-bar-item" style="margin-block-start: 0px; margin-block-end: 0px; padding-right: 3rem; text-transform: uppercase;">{{message}}</p>
+                {%endfor%}
+            {%endif%}
+        {%endwith%}
+        <p class="w3-bar-item w3-right" style="margin-block-start: 0px; margin-block-end: 0px; padding-right: 3rem">
+        </div>
+    </div>
+
+    <main class="w3-content" style="margin-top:70px">
+        {%block content%}
+        {%endblock%}
+    </main>
+</body>
+</html>
